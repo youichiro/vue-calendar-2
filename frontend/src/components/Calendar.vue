@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Calendar</p>
     <p>events:</p>
     <p>{{ events }}</p>
     <button type="submit" @click="fetchEvents()">fetchEvents</button>

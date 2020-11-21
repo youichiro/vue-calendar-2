@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Calendar</p>
+    <h1>Calendar</h1>
     <p>events:</p>
     <p>{{ events }}</p>
     <button type="submit" @click="fetchEvents()">fetchEvents</button>
@@ -22,7 +22,7 @@ export default {
           this.events = response.data;
         })
         .catch((error) => {
-          console.erorr(error);
+          console.error(error);
         })
     }
   }

@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>Calendar</h1>
-    <p>events:</p>
-    <p>{{ events }}</p>
+    <ul>
+      <li v-for="event in events" :key="event.id">
+        {{ event.name }}
+      </li>
+    </ul>
     <button type="submit" @click="fetchEvents()">fetchEvents</button>
   </div>
 </template>
@@ -13,19 +16,19 @@ import axios from 'axios';
 export default {
   name: 'Calendar',
   data: () => ({
-    events: []
+    events: [],
   }),
   methods: {
     fetchEvents() {
       axios
         .get('http://localhost:3000/events')
-        .then(response => {
+        .then((response) => {
           this.events = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>

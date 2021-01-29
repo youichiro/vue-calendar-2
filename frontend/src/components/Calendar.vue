@@ -19,13 +19,13 @@ import CalendarDetails from './CalendarDetails.vue';
 export default {
   name: 'Calendar',
   components: {
-    CalendarDetails,
+    CalendarDetails
   },
   computed: {
-    ...mapGetters('events', ['events']),
+    ...mapGetters('events', ['events'])
   },
   methods: {
     ...mapActions('events', ['fetchEvents'])
-  },
+  }
 };
 </script>

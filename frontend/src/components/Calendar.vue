@@ -3,6 +3,8 @@
     <v-sheet height="100vh">
       <v-calendar
         v-model="value"
+        :events="events"
+        @change="fetchEvents"
       ></v-calendar>
     </v-sheet>
   </div>

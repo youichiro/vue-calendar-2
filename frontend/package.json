@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "date-fns": "^2.17.0",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"
@@ -37,6 +38,9 @@
     }
   },
   "lint-staged": {
-    "./src/**/*.{vue,js}": ["eslint --cache --fix", "prettier --write"]
+    "./src/**/*.{vue,js}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <v-sheet height="100vh">
+    <v-sheet height="6vh" class="d-flex align-center">
+      <v-toolbar-title>2020年 10月</v-toolbar-title>
+    </v-sheet>
+    <v-sheet height="94vh">
       <v-calendar
         v-model="value"
         :events="events"
@@ -19,7 +22,7 @@ export default {
     value: new Date('2020-10-01') // 表示する月を指定
   }),
   computed: {
-    ...mapGetters('events', ['events'])
+    ...mapGetters('events', ['events']),
   },
   methods: {
     ...mapActions('events', ['fetchEvents'])

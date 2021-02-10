@@ -22,6 +22,10 @@
         @click:event="showEvent"
       ></v-calendar>
     </v-sheet>
+
+    <v-overlay :value="event !== null">
+      <p>EVENT</p>
+    </v-overlay>
   </div>
 </template>
 
@@ -35,18 +39,18 @@ export default {
     value: format(new Date(), 'yyyy-MM-dd')
   }),
   computed: {
-    ...mapGetters('events', ['events']),
+    ...mapGetters('events', ['events', 'event']),
     title() {
       return format(new Date(this.value), 'yyyy年 M月')
     }
   },
   methods: {
-    ...mapActions('events', ['fetchEvents']),
+    ...mapActions('events', ['fetchEvents', 'setEvent']),
     setToday() {
       this.value = format(new Date(), 'yyyy-MM-dd')
     },
-    showEvent() {
-      alert('clicked event')
+    showEvent({ event }) {
+      this.setEvent(event);
     }
   }
 };

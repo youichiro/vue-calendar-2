@@ -23,9 +23,19 @@
       ></v-calendar>
     </v-sheet>
 
-    <v-overlay :value="event !== null">
-      <p>EVENT</p>
-    </v-overlay>
+    <v-dialog :value="event !== null">
+      <v-card>
+        <div v-if="event !== null">
+          <h1>イベント詳細</h1>
+          <p>name: {{ event.name }}</p>
+          <p>start: {{ event.start.toLocaleString() }}</p>
+          <p>end: {{ event.end.toLocaleString() }}</p>
+          <p>timed: {{ event.timed }}</p>
+          <p>description: {{ event.description }}</p>
+          <p>color: {{ event.color }}</p>
+        </div>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -36,7 +46,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Calendar',
   data: () => ({
-    value: format(new Date(), 'yyyy-MM-dd')
+    value: format(new Date(), 'yyyy-MM-dd'),
   }),
   computed: {
     ...mapGetters('events', ['events', 'event']),

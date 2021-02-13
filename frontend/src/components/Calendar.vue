@@ -34,7 +34,7 @@
           <v-card-title>
             <v-row>
               <v-col cols="2" class="d-flex justify-center align-center">
-                icon
+                <v-icon size="20px" :color="event.color || 'blue'">mdi-square</v-icon>
               </v-col>
               <v-col class="d-flex align-center">
                 {{ event.name }}
@@ -44,7 +44,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="2" class="d-flex justify-center align-center">
-                icon
+                <v-icon size="20px">mdi-clock-time-three-outline</v-icon>
               </v-col>
               <v-col class="d-flex align-center">
                 {{ event.start.toLocaleString() }} ~ {{ event.end.toLocaleString() }}
@@ -54,7 +54,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="2" class="d-flex justify-center align-center">
-                icon
+                <v-icon size="20px">mdi-card-text-outline</v-icon>
               </v-col>
               <v-col class="d-flex align-center">
                 {{ event.description || 'no description' }}

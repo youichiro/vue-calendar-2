@@ -17,8 +17,8 @@
         :events="events"
         @change="fetchEvents"
         locale="ja-jp"
-        :day-format="(timestamp) => new Date(timestamp.date).getDate()"
-        :month-format="(timestamp) => (new Date(timestamp.date).getMonth() + 1) + ' /'"
+        :day-format="timestamp => new Date(timestamp.date).getDate()"
+        :month-format="timestamp => new Date(timestamp.date).getMonth() + 1 + ' /'"
         @click:event="showEvent"
       ></v-calendar>
     </v-sheet>
@@ -40,18 +40,18 @@ export default {
     EventDetail
   },
   data: () => ({
-    value: format(new Date(), 'yyyy-MM-dd'),
+    value: format(new Date(), 'yyyy-MM-dd')
   }),
   computed: {
     ...mapGetters('events', ['events', 'event']),
     title() {
-      return format(new Date(this.value), 'yyyy年 M月')
+      return format(new Date(this.value), 'yyyy年 M月');
     }
   },
   methods: {
     ...mapActions('events', ['fetchEvents', 'setEvent']),
     setToday() {
-      this.value = format(new Date(), 'yyyy-MM-dd')
+      this.value = format(new Date(), 'yyyy-MM-dd');
     },
     showEvent({ event }) {
       this.setEvent(event);

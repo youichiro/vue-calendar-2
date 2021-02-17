@@ -28,7 +28,7 @@ import { mapGetters, mapActions } from 'vuex';
 import DialogSection from './DialogSection';
 
 export default {
-  name: 'EventDetail',
+  name: 'EventDetailDialog',
   components: {
     DialogSection
   },

@@ -39,19 +39,21 @@ import EventFormDialog from './EventFormDialog';
 
 export default {
   name: 'Calendar',
-  components: { EventDetailDialog, EventFormDialog },
+  components: {
+    EventDetailDialog,
+    EventFormDialog
+  },
   data: () => ({
     value: format(new Date(), 'yyyy-MM-dd'),
-    isEditMode: false,
   }),
   computed: {
-    ...mapGetters('events', ['events', 'event']),
+    ...mapGetters('events', ['events', 'event', 'isEditMode']),
     title() {
       return format(new Date(this.value), 'yyyy年 M月');
     }
   },
   methods: {
-    ...mapActions('events', ['fetchEvents', 'setEvent']),
+    ...mapActions('events', ['fetchEvents', 'setEvent', 'setEditMode']),
     setToday() {
       this.value = format(new Date(), 'yyyy-MM-dd');
     },
@@ -61,12 +63,13 @@ export default {
     },
     closeDialog() {
       this.setEvent(null);
+      this.setEditMode(false)
     },
-    initEvent( { date }) {
+    initEvent({ date }) {
       const start = format(new Date(date), 'yyyy-MM-dd 00:00:00')
       const end = format(new Date(date), 'yyyy-MM-dd 01:00:00')
       this.setEvent({ name: '', start, end, timed: true });
-      this.isEditMode = true
+      this.setEditMode(true)
     }
   }
 };

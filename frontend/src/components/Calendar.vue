@@ -25,8 +25,8 @@
     </v-sheet>
 
     <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
-      <EventDetailDialog />
-      <EventFormDialog />
+      <EventDetailDialog v-if="!isEditMode" />
+      <EventFormDialog v-if="isEditMode" />
     </v-dialog>
   </div>
 </template>
@@ -41,7 +41,8 @@ export default {
   name: 'Calendar',
   components: { EventDetailDialog, EventFormDialog },
   data: () => ({
-    value: format(new Date(), 'yyyy-MM-dd')
+    value: format(new Date(), 'yyyy-MM-dd'),
+    isEditMode: false,
   }),
   computed: {
     ...mapGetters('events', ['events', 'event']),
@@ -65,6 +66,7 @@ export default {
       const start = format(new Date(date), 'yyyy-MM-dd 00:00:00')
       const end = format(new Date(date), 'yyyy-MM-dd 01:00:00')
       this.setEvent({ name: '', start, end, timed: true });
+      this.isEditMode = true
     }
   }
 };

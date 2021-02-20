@@ -7,7 +7,7 @@
     </v-card-actions>
     <v-card-text>
       <DialogSection icon="mdi-square" :color="event.color || 'blue'">
-      <v-text-field autofocus v-model="name" label="タイトル" required></v-text-field>
+        <v-text-field v-model="name" label="タイトル"></v-text-field>
       </DialogSection>
     </v-card-text>
   </v-card>
@@ -29,7 +29,7 @@ export default {
     ...mapGetters('events', ['event'])
   },
   methods: {
-    ...mapActions('events', ['createEvent']),
+    ...mapActions('events', ['setEvent']),
     closeDialog() {
       this.setEvent(null);
     }

@@ -41,7 +41,7 @@ const actions = {
     commit('setEvents', response.data);
   },
   async createEvent({ commit }, event) {
-    const response = await axios.post(`${apiUrl}/events/${event.id}`, event);
+    const response = await axios.post(`${apiUrl}/events`, event);
     commit('appendEvent', response.data);
   },
   setEvent({ commit }, event) {

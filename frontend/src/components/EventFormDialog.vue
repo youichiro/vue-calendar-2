@@ -10,6 +10,9 @@
         <v-text-field v-model="name" label="タイトル"></v-text-field>
       </DialogSection>
     </v-card-text>
+    <v-card-text>
+      <v-date-picker
+    </v-card-text>
     <v-card-actions class="d-flex justify-end">
       <v-btn @click="submit">保存</v-btn>
     </v-card-actions>
@@ -43,7 +46,6 @@ export default {
         start: this.event.start,
         end: this.event.end,
       };
-      console.log(params)
       this.createEvent(params);
       this.closeDialog();
     }

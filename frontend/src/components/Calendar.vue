@@ -25,8 +25,8 @@
     </v-sheet>
 
     <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
-      <EventDetailDialog v-if="!isEditMode" />
-      <EventFormDialog v-if="isEditMode" />
+      <EventDetailDialog v-if="event !== null && !isEditMode" />
+      <EventFormDialog v-if="event !== null && isEditMode" />
     </v-dialog>
   </div>
 </template>

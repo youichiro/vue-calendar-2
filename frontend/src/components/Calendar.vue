@@ -44,7 +44,7 @@ export default {
     EventFormDialog
   },
   data: () => ({
-    value: format(new Date(), 'yyyy-MM-dd'),
+    value: format(new Date(), 'yyyy/MM/dd'),
   }),
   computed: {
     ...mapGetters('events', ['events', 'event', 'isEditMode']),
@@ -55,7 +55,7 @@ export default {
   methods: {
     ...mapActions('events', ['fetchEvents', 'setEvent', 'setEditMode']),
     setToday() {
-      this.value = format(new Date(), 'yyyy-MM-dd');
+      this.value = format(new Date(), 'yyyy/MM/dd');
     },
     showEvent({ nativeEvent, event }) {
       this.setEvent(event);
@@ -66,8 +66,9 @@ export default {
       this.setEditMode(false)
     },
     initEvent({ date }) {
-      const start = format(new Date(date), 'yyyy-MM-dd 00:00:00')
-      const end = format(new Date(date), 'yyyy-MM-dd 01:00:00')
+      const start = format(new Date(date), 'yyyy/MM/dd 00:00:00')
+      const end = format(new Date(date), 'yyyy/MM/dd 01:00:00')
+      console.log('start:', start)
       this.setEvent({ name: '', start, end, timed: true });
       this.setEditMode(true)
     }

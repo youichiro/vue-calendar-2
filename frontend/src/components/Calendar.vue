@@ -68,7 +68,6 @@ export default {
     initEvent({ date }) {
       const start = format(new Date(date), 'yyyy/MM/dd 00:00:00')
       const end = format(new Date(date), 'yyyy/MM/dd 01:00:00')
-      console.log('start:', start)
       this.setEvent({ name: '', start, end, timed: true });
       this.setEditMode(true)
     }

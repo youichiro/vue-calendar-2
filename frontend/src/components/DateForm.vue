@@ -1,7 +1,7 @@
 <template>
   <v-menu offset-y>
     <template v-slot:activator="{ on }">
-      <v-btn text v-on="on">{{ value }}</v-btn>
+      <v-btn text v-on="on">{{ value || '日付を選択' }}</v-btn>
     </template>
 
     <v-date-picker

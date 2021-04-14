@@ -9,8 +9,6 @@
       <DialogSection icon="mdi-square" :color="event.color || 'blue'">
         <v-text-field v-model="name" label="タイトル"></v-text-field>
       </DialogSection>
-    </v-card-text>
-    <v-card-text>
       <DialogSection icon="mdi-clock-outline">
         <DateForm v-model="startDate" />
         <TimeForm v-model="startTime" />
@@ -45,7 +43,7 @@ export default {
     endTime: null,
   }),
   computed: {
-    ...mapGetters('events', ['event'])
+    ...mapGetters('events', ['event']),
   },
   created() {
     this.startDate = this.event.startDate;
@@ -67,7 +65,7 @@ export default {
       };
       this.createEvent(params);
       this.closeDialog();
-    }
-  }
+    },
+  },
 };
 </script>

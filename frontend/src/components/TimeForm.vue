@@ -20,7 +20,7 @@ export default {
   computed: {
     times() {
       return getTimeIntervalList();
-    }
+    },
   },
-}
+};
 </script>

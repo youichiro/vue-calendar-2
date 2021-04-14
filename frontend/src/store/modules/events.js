@@ -35,7 +35,7 @@ const actions = {
     commit('setEvent', event);
   },
   setEditMode({ commit }, bool) {
-    commit('setEditMode', bool)
+    commit('setEditMode', bool);
   },
 };
 
@@ -44,5 +44,5 @@ export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 };

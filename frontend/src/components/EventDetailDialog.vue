@@ -30,16 +30,16 @@ import DialogSection from './DialogSection';
 export default {
   name: 'EventDetailDialog',
   components: {
-    DialogSection
+    DialogSection,
   },
   computed: {
-    ...mapGetters('events', ['event'])
+    ...mapGetters('events', ['event']),
   },
   methods: {
     ...mapActions('events', ['setEvent']),
     closeDialog() {
       this.setEvent(null);
-    }
-  }
+    },
+  },
 };
 </script>

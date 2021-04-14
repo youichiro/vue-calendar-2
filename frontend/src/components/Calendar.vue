@@ -41,7 +41,7 @@ export default {
   name: 'Calendar',
   components: {
     EventDetailDialog,
-    EventFormDialog
+    EventFormDialog,
   },
   data: () => ({
     value: format(new Date(), 'yyyy/MM/dd'),
@@ -50,7 +50,7 @@ export default {
     ...mapGetters('events', ['events', 'event', 'isEditMode']),
     title() {
       return format(new Date(this.value), 'yyyy年 M月');
-    }
+    },
   },
   methods: {
     ...mapActions('events', ['fetchEvents', 'setEvent', 'setEditMode']),
@@ -63,14 +63,14 @@ export default {
     },
     closeDialog() {
       this.setEvent(null);
-      this.setEditMode(false)
+      this.setEditMode(false);
     },
     initEvent({ date }) {
-      const start = format(new Date(date), 'yyyy/MM/dd 00:00:00')
-      const end = format(new Date(date), 'yyyy/MM/dd 01:00:00')
+      const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+      const end = format(new Date(date), 'yyyy/MM/dd 01:00:00');
       this.setEvent({ name: '', start, end, timed: true });
-      this.setEditMode(true)
-    }
-  }
+      this.setEditMode(true);
+    },
+  },
 };
 </script>

@@ -12,7 +12,7 @@ import Calendar from './components/Calendar';
 export default {
   name: 'App',
   components: {
-    Calendar
-  }
+    Calendar,
+  },
 };
 </script>

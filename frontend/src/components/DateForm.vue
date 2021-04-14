@@ -18,5 +18,5 @@
 export default {
   name: 'DateForm',
   props: ['value'],
-}
+};
 </script>

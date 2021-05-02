@@ -16,3 +16,15 @@ export const getDefaultStartAndEnd = date => {
   const end = format(addHours(datetime, 2), 'yyyy/MM/dd HH:00:00');
   return [start, end];
 };
+
+export const isGreaterEndThanStart = (startDate, startTime, endDate, endTime, allDay) => {
+  if (allDay) {
+    const start = new Date(startDate).getTime();
+    const end = new Date(endDate).getTime();
+    return end >= start;
+  } else {
+    const start = new Date(`${startDate} ${startTime}`).getTime();
+    const end = new Date(`${endDate} ${endTime}`).getTime();
+    return end > start;
+  }
+};

@@ -79,7 +79,7 @@ export default {
   computed: {
     ...mapGetters('events', ['event']),
     isInvalidDatetime() {
-      return !isGreaterEndThanStart(this.startDate, this.startTime, this.endDate, this.endTime);
+      return !isGreaterEndThanStart(this.startDate, this.startTime, this.endDate, this.endTime, this.allDay);
     },
     isInvalid() {
       return this.$v.$invalid || this.isInvalidDatetime;

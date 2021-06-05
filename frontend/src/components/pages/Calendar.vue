@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet height="6vh" class="d-flex align-center">
+    <v-sheet height="6vh" class="d-flex align-center" color="grey lighten-3">
       <v-btn outlined small class="ma-4" @click="setToday">今日</v-btn>
       <v-btn icon @click="$refs.calendar.prev()">
         <v-icon>mdi-chevron-left</v-icon>

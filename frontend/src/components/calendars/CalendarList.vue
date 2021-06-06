@@ -1,11 +1,19 @@
 <template>
   <v-list dense>
-    <v-list-item>
-      <v-list-item-content>マイカレンダー</v-list-item-content>
-    </v-list-item>
-    <v-list-item v-for="calendar in calendars" :key="calendar.id">
-      ・{{ calendar.name }}
-    </v-list-item>
+    <v-list-item-group v-model="selectedItem">
+      <v-subheader>マイカレンダー</v-subheader>
+      <v-list-item v-for="calendar in calendars" :key="calendar.id">
+        <v-list-item-content class="pa-0">
+          <v-checkbox
+            dense
+            v-model="calendar.visibility"
+            :color="calendar.color"
+            :label="calendar.name"
+            class="pa-0"
+          ></v-checkbox>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list-item-group>
   </v-list>
 </template>
 
@@ -14,6 +22,9 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'CalendarList',
+  data: () => ({
+    selectedItem: null,
+  }),
   computed: {
     ...mapGetters('calendars', ['calendars']),
   },

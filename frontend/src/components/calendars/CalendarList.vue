@@ -7,7 +7,7 @@
           <v-checkbox
             dense
             v-model="calendar.visibility"
-            :color="calendar.color || 'blue'"
+            :color="calendar.color"
             :label="calendar.name"
             class="pa-0"
           ></v-checkbox>

@@ -10,7 +10,7 @@
         </v-btn>
       </v-list-item-action>
     </v-list-item>
-    <v-list-item-group v-model="selectedItem">
+    <v-list-item-group :value="selectedItem">
       <v-list-item v-for="calendar in calendars" :key="calendar.id">
         <v-list-item-content class="pa-0">
           <v-checkbox
@@ -22,7 +22,7 @@
             class="pa-0"
           ></v-checkbox>
         </v-list-item-content>
-        <v-list-item-action>
+        <v-list-item-action class="ma-0">
           <v-menu transition="scale-transition" offset-y min-width="100px">
             <template v-slot:activator="{ on }">
               <v-btn icon v-on="on">

@@ -50,9 +50,9 @@ export default {
         return;
       }
       const params = {
+        ...this.calendar,
         name: this.name,
         color: this.color,
-        visibility: this.calendar.visibility,
       };
       this.createCalendar(params);
       this.close();

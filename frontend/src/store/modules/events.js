@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { filterEventsByDate } from '../../functions/filters';
 import { serializeEvent } from '../../functions/serializers';
 
 const apiUrl = 'http://localhost:3000';
@@ -7,12 +8,15 @@ const state = {
   events: [],
   event: null,
   isEditMode: false,
+  clickedDate: null,
 };
 
 const getters = {
   events: state => state.events.filter(event => event.calendar.visibility).map(event => serializeEvent(event)),
   event: state => serializeEvent(state.event),
+  dayEvents: state => filterEventsByDate(state.events, state.clickedDate),
   isEditMode: state => state.isEditMode,
+  clickedDate: state => state.clickedDate,
 };
 
 const mutations = {
@@ -23,6 +27,7 @@ const mutations = {
   resetEvent: state => (state.event = null),
   updateEvent: (state, event) => (state.events = state.events.map(e => (e.id === event.id ? event : e))),
   setEditMode: (state, bool) => (state.isEditMode = bool),
+  setClickedDate: (state, date) => (state.clickedDate = date),
 };
 
 const actions = {
@@ -48,6 +53,9 @@ const actions = {
   },
   setEditMode({ commit }, bool) {
     commit('setEditMode', bool);
+  },
+  setClickedDate({ commit }, date) {
+    commit('setClickedDate', date);
   },
 };
 

@@ -18,6 +18,7 @@
             v-model="calendar.visibility"
             :color="calendar.color"
             :label="calendar.name"
+            @click="toggleVisibility(calendar)"
             class="pa-0"
           ></v-checkbox>
         </v-list-item-content>
@@ -59,7 +60,7 @@ export default {
     this.fetchCalendars();
   },
   methods: {
-    ...mapActions('calendars', ['fetchCalendars', 'deleteCalendar', 'setCalendar']),
+    ...mapActions('calendars', ['fetchCalendars', 'updateCalendar', 'deleteCalendar', 'setCalendar']),
     initCalendar() {
       this.setCalendar({
         name: '',
@@ -74,6 +75,9 @@ export default {
     },
     del(calendar) {
       this.deleteCalendar(calendar.id);
+    },
+    toggleVisibility(calendar) {
+      this.updateCalendar(calendar);
     },
   },
 };

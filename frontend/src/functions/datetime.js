@@ -38,12 +38,12 @@ export const formatDateToJa = date => {
 
 export const isDateWithinInterval = (date, startDate, endDate) => {
   // startDateとendDateの間にdateが含まれるかどうか
-  return isWithinInterval(new Date(date), { start: new Date(startDate), end: new Date(endDate) })
-}
+  return isWithinInterval(new Date(date), { start: new Date(startDate), end: new Date(endDate) });
+};
 
 export const compareDates = (a, b) => {
   // 日付の比較を行う
   if (a.start < b.start) return -1;
   if (a.start > b.start) return 1;
   return 0;
-}
+};

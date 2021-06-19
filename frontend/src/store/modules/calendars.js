@@ -16,8 +16,7 @@ const getters = {
 const mutations = {
   setCalendars: (state, calendars) => (state.calendars = calendars),
   appendCalendar: (state, calendar) => (state.calendars = [...state.calendars, calendar]),
-  updateCalendar: (state, calendar) =>
-    (state.calendars = state.calendars.map(c => (c.id === calendar.id ? calendar : c))),
+  updateCalendar: (state, calendar) => (state.calendars = state.calendars.map(c => (c.id === calendar.id ? calendar : c))),
   removeCalendar: (state, calendar) => (state.calendars = state.calendars.filter(c => c.id !== calendar.id)),
   setCalendar: (state, calendar) => (state.calendar = calendar),
 };
